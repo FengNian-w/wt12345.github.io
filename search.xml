@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[rem布局]]></title>
+      <url>%2F2016%2F05%2F28%2Frem%E5%B8%83%E5%B1%80%2F</url>
+      <content type="text"><![CDATA[最近公司要做移动端的响应式开发，用到了rem布局，使用rem实现响应式开发，应该是当前移动前端的一大趋势。下面简单总结一下相关知识点。 rem布局相关理解rem、em、px三者之间的关系1.px像素相对长度单位，相对于显示器屏幕分辨率而言的，在pc端使用较多； 2.em相对长度单位，根据父元素来设置字体大小; 3.remCSS3新增的一个相对单位,是根据网页的跟元素（html）来设置字体大小;rem是根据html的font-size大小来变化，正是基于这点，可以在每一个设备下根据设备的宽度设置对应的html字体大小，从而实现自适应布局。 rem的值正常情况下rem的值默认为16px，这样在整个页面的css计算过程中太过繁琐。比如，现在有个40px宽度的元素，就得写成40/16rem。对于整个页面来说工作量还是挺大的,特别是我这种计算能力差的，换算起来简直要崩溃了。所以这里提供了两种方法来设置 1.将html的font-size设置成100px,之所以设置成100，是因为计算起来比较容易，比如设计稿宽度为100px，转换之后就是1rem，另外，谷歌等浏览器对最小字体有限制，所以将根节点字体设置成10px时会有问题。 2.通过js动态调整html的字号 12345678910111213(function (doc, win) &#123; var docEl = doc.documentElement, resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;, recalc = function () &#123; var clientWidth = docEl.clientWidth; if (!clientWidth) return; //7.5这个数字是根据你的设计图的实际大小除以100得来的，所以值具体根据设计图的大小 docEl.style.fontSize = clientWidth / 7.5 + &apos;px&apos;; &#125;; if (!doc.addEventListener) return; win.addEventListener(resizeEvt, recalc, false); doc.addEventListener(&apos;DOMContentLoaded&apos;, recalc, false); &#125;)(document, window);]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[写在最前]]></title>
+      <url>%2F2016%2F05%2F25%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[想搭博客很久了，但是一直忙于工作和生活就给耽搁了(ps:主要还是因为自己太懒^^)，趁着难得的小假期，赶紧督促自己把博客搭起来了。之前一直觉得搭建博客是件很简单的事情，不料实际搭建过程中遇到了各式各样的小插曲，下面就简单介绍一下使用hexo搭建博客的主题设置 Hexo搭建GitHub博客主题设置为什么选择NexT主题1.简洁优雅，简约而不简单2.功能特性多样，响应式好，在移动端体验也好3.配置比较简单，稍微修改配置文件即可 NexT主题安装切进themes文件夹，按住shift+鼠标右键，点击在此处打开命令窗口，执行以下命令：(之所以在后面添加–depth=1，是为了避免将提交的历史记录下载下来)1$ git clone https://github.com/iissnan/hexo-theme-next.git --depth=1 修改配置文件打开配置文件_config.yml，找到以下部分 1234# Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: landscape 修改为 1234# Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: hexo-theme-next 选择SchemeNexT 通过 Scheme 提供主题中的主题。一共有三种主题可供选择，可以任意选择其中一种，解开注释即可。 1234# Schemes# scheme: Muse#scheme: Mistscheme: Pisces 菜单设置NexT主题菜单设置，用于设置博客上方导航栏，在主题配置文件中修改,如果要上标签页面和分类页面生效，需要手动配置。12345678menu:home: /categories: /categories #about: /aboutarchives: /archivestags: /tags#sitemap: /sitemap.xml#commonweal: /404.html 标签页面1.运行一下命令，会在/source目录下会生成一个tags文件夹，里面包含一个index.md文件1$ hexo new page "tags" 2.修改/source/tags目录下的index.md文件123title: tagsdate: 2016-5-25 10:35:02type: "tags" 3.修改主题配置文件，去掉tags的注释 分类页面1.运行一下命令，会在/source目录下会生成一个categories文件夹，里面包含一个index.md文件1$ hexo new page "categories" 2.修改/source/categories目录下的index.md文件123title: categoriesdate: 2016-5-25 10:35:02type: "categories" 3.修改主题配置文件，去掉categories的注释 头像设置编辑themes-&gt;hexo-theme-next-&gt;_config.yml文件，增加avatar字段,头像图片须放置在主题的/source/images/目录下1avatar: /images/img.jpg 以上就是关于hexo NexT主题的简单配置]]></content>
+    </entry>
+
+    
+  
+  
+</search>
